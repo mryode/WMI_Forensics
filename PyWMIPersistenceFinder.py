@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# 
+#
 # PyWMIPersistenceFinder.py
 # Version 1.1
 #
@@ -91,13 +91,13 @@ def main():
 
     #Read objects.data 4 lines at a time to look for bindings
     objects_file = open(sys.argv[1], "rb")
-    current_line = objects_file.readline()
+    current_line = str(objects_file.readline())
     lines_list = [current_line]
-    current_line = objects_file.readline()
+    current_line = str(objects_file.readline())
     lines_list.append(current_line)
-    current_line = objects_file.readline()
+    current_line = str(objects_file.readline())
     lines_list.append(current_line)
-    current_line = objects_file.readline()
+    current_line = str(objects_file.readline())
     lines_list.append(current_line)
 
     #Precompiled match objects to search each line with
@@ -137,7 +137,7 @@ def main():
                         "event_filter_name":event_filter_name}
 
         # Increment lines and look again
-        current_line = objects_file.readline()
+        current_line = str(objects_file.readline())
         lines_list.append(current_line)
         lines_list.pop(0)
 
@@ -148,13 +148,13 @@ def main():
 
     # Read objects.data 4 lines at a time to look for filters and consumers
     objects_file = open(sys.argv[1], "rb")
-    current_line = objects_file.readline()
+    current_line = str(objects_file.readline())
     lines_list = [current_line]
-    current_line = objects_file.readline()
+    current_line = str(objects_file.readline())
     lines_list.append(current_line)
-    current_line = objects_file.readline()
+    current_line = str(objects_file.readline())
     lines_list.append(current_line)
-    current_line = objects_file.readline()
+    current_line = str(objects_file.readline())
     lines_list.append(current_line)
 
     while current_line:
@@ -207,11 +207,11 @@ def main():
                         filter_match.groups()[2])
                     filter_dict[event_filter_name].add(filter_details)
 
-        current_line = objects_file.readline()
+        current_line = str(objects_file.readline())
         lines_list.append(current_line)
         lines_list.pop(0)
     objects_file.close()
-    
+
     # Print results to stdout. CSV will be in future version.
     print("\n    Bindings:\n")
     for binding_name, binding_details in bindings_dict.iteritems():
